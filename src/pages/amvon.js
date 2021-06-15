@@ -2,11 +2,11 @@ import React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
 
-export default function Home() {
+export default function Amvon() {
   return (
     <>
       <Seo />
-      <Layout>Hello world!</Layout>
+      <Layout>Pagina cu Amvon</Layout>
     </>
   )
 }
