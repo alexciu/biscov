@@ -5,8 +5,8 @@ import Seo from "../components/SEO"
 export default function Amvon() {
   return (
     <>
-      <Seo />
-      <Layout>Pagina cu Amvon</Layout>
+      <Seo title="Amvon" />
+      <Layout className="amvon-page">Pagina cu Amvon</Layout>
     </>
   )
 }

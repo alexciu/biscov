@@ -13,7 +13,6 @@ export default function Layout({ children, className }) {
         <Navigation />
       </Header>
       <main className={"container " + className}>{children}</main>
-
       <Footer creator="The Zbenga" />
     </div>
   )

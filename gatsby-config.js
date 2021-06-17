@@ -10,7 +10,7 @@ module.exports = {
     siteLangL: "ro-RO",
     siteLangS: "ro",
     title: "Biserica Ortodoxa Izvorul Tamaduirii, Covasna",
-    titleTemplate: "%s",
+    titleTemplate: "%s | Biserica Ortodoxa Izvorul Tamaduirii, Covasna",
     siteUrl: "https://bisericaortodoxacovasna.ro",
     description:
       "Parohia Ortodoxa 'Izvorul Tamaduirii' din Covasna va asteapta sa o vizitati",
@@ -24,10 +24,18 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
+        name: `istoric-md`,
+        path: `${__dirname}/src/content/istoric/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `amvon-md`,
+        path: `${__dirname}/src/content/amvon/`,
+      },
+    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,5 +67,22 @@ module.exports = {
     },
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
   ],
 }

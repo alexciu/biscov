@@ -5,8 +5,8 @@ import Seo from "../components/SEO"
 export default function Activitati() {
   return (
     <>
-      <Seo />
-      <Layout>Pagina cu activitati</Layout>
+      <Seo title="Activitati" />
+      <Layout className="activitati-page">Pagina cu activitati</Layout>
     </>
   )
 }

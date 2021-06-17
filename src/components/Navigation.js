@@ -20,6 +20,10 @@ const MenuItems = [
     title: "Istoric",
   },
   {
+    path: "/foto",
+    title: "Foto",
+  },
+  {
     path: "/contact",
     title: "Contact",
   },
