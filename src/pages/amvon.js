@@ -1,12 +1,42 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
+import PostCard from "../components/post-card"
 
-export default function Amvon() {
+import { graphql } from "gatsby"
+
+export default function Amvon({ data }) {
+  const posts = data.allMarkdownRemark.edges
+    .filter(edge => !!edge.node.frontmatter.date)
+    .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
+
   return (
     <>
       <Seo title="Amvon" />
-      <Layout className="amvon-page">Pagina cu Amvon</Layout>
+      <Layout className="amvon-page">
+        <div className="blog-post-container grids col-1 sm-2 lg-3">{posts}</div>
+      </Layout>
     </>
   )
 }
+
+export const pageQuery = graphql`
+  {
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "amvon" } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            category
+            slug
+            title
+            date(formatString: "DD MMMM, YYYY", locale: "ro")
+          }
+          id
+        }
+      }
+    }
+  }
+`

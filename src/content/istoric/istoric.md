@@ -1,10 +1,10 @@
 ---
 template: blog-post
 category: istoric
-slug: "/istoric/povestea_bisericii"
+slug: /istoric/povestea_bisericii
 date: 2021-06-16
-title: "Povestea bisericii „Izvorul Tămăduirii” din Covasna"
-description: "Povestea bisericii „Izvorul Tămăduirii” din Covasna"
+title: Povestea bisericii „Izvorul Tămăduirii” din Covasna
+description: Povestea bisericii „Izvorul Tămăduirii” din Covasna
 ---
 
 # ISTORIC

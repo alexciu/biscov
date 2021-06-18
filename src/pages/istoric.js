@@ -1,27 +1,20 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
+import PostCard from "../components/post-card"
 
 import { graphql } from "gatsby"
 
 export default function Istoric({ data }) {
-  const { childMarkdownRemark } = data.allFile.nodes[0] // data.markdownRemark holds your post data
-  const { frontmatter, html } = childMarkdownRemark
+  const posts = data.allMarkdownRemark.edges
+    .filter(edge => !!edge.node.frontmatter.date)
+    .map(edge => <PostCard key={edge.node.id} data={edge.node} />)
 
   return (
     <>
       <Seo title="Istoric" />
       <Layout className="istoric-page">
-        <div className="blog-post-container">
-          <div className="blog-post">
-            <h1>{frontmatter.title}</h1>
-            <h2>{frontmatter.date}</h2>
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </div>
-        </div>
+        <div className="blog-post-container grids col-1 sm-2 lg-3">{posts}</div>
       </Layout>
     </>
   )
@@ -29,17 +22,20 @@ export default function Istoric({ data }) {
 
 export const pageQuery = graphql`
   {
-    allFile(filter: { sourceInstanceName: { eq: "istoric-md" } }) {
-      nodes {
-        childMarkdownRemark {
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "amvon" } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
           frontmatter {
-            date(formatString: "DD MMMM, YYYY", locale: "ro")
+            category
             slug
             title
+            date(formatString: "DD MMMM, YYYY", locale: "ro")
           }
-          html
+          id
         }
-        id
       }
     }
   }

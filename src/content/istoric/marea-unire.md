@@ -1,7 +1,7 @@
 ---
 template: blog-post
-category: amvon
-slug: /amvon/marea-unire
+category: istoric
+slug: /istoric/marea-unire
 date: 2021-06-17
 title: MAREA UNIRE – 1 DECEMBRIE 1918
 description: :MAREA UNIRE – 1 DECEMBRIE 1918
