@@ -23,7 +23,7 @@ export default function Istoric({ data }) {
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "amvon" } } }
+      filter: { frontmatter: { category: { eq: "istoric" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
