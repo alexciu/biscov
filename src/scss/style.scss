@@ -318,7 +318,7 @@ article img {
   align-items: center;
   padding: var(--padding) calc(var(--padding) * 2);
   background-color: var(--button-alternate-color);
-  color: var(--button-color);
+  color: var(--header-bg);
   border-radius: 12px;
   text-decoration: none;
   appearance: none;
@@ -326,10 +326,11 @@ article img {
   font-size: inherit;
   line-height: 1;
   transition: background 0.3s linear;
+  cursor: pointer;
 
   &:hover {
-    background-color: var(--button-color);
-    color: var(--button-alternate-color);
+    background-color: var(--text-color);
+    color: var(--header-bg);
   }
 
   &.-outline {
